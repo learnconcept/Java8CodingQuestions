@@ -18,12 +18,12 @@ public class ValidString {
                 stack.pop();
             } else if (c==']' && !stack.isEmpty() && '['==stack.peek()) {
                 stack.pop();
-            } else{
-                System.out.println("Is not valid string");
             }
         }
         if(stack.isEmpty()){
-            System.out.println("Is valid string");
+            System.out.println(isValid+" Is valid string");
+        } else {
+            System.out.println(isValid+" Is not valid string");
         }
     }
 }
