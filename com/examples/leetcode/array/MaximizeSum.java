@@ -1,18 +1,20 @@
 package com.examples.leetcode.array;
 
+import java.util.Arrays;
+
 public class MaximizeSum {
 
     public static void main(String[] args) {
-        int[] nums = {5,5,5};
-        int k = 2;
+        int[] nums = {1,2,3,4,5};
+        int k = 3;
         int sum=0;
-        int temp=0;
 
-        for (int i=0; i<k; i++){
-            temp = nums[nums.length-1];
-            nums[nums.length-1] = temp+1;
-            sum+= temp;
+        int max = Arrays.stream(nums).max().getAsInt();
+
+        while(--k>=0){
+            sum+=max+k;
         }
+
         System.out.println(sum);
     }
 }
