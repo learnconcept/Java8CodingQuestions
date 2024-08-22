@@ -1,4 +1,4 @@
-package com.examples.linkedlist;
+package com.examples.dsa.linkedlist;
 
 public class SingleLinkedList {
     private ListNode head;
@@ -24,7 +24,13 @@ public class SingleLinkedList {
         second.next = third;
         third.next = fourth;
 
-        //System.out.println(head);
+        ListNode current = sLL.head;
+
+        while(current!=null){
+            System.out.print(current.data+"-->");
+            current = current.next;
+        }
+        System.out.println("null");
 
     }
 }
