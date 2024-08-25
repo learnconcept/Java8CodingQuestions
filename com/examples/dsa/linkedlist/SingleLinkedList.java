@@ -14,23 +14,36 @@ public class SingleLinkedList {
     }
 
     public static void main(String[] args) {
-        SingleLinkedList sLL= new SingleLinkedList();
-        sLL.head = new ListNode(20);
-        ListNode second = new ListNode(12);
-        ListNode third = new ListNode(11);
-        ListNode fourth = new ListNode(2);
-
-        sLL.head.next = second;
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.head = new SingleLinkedList.ListNode(10);
+        SingleLinkedList.ListNode second = new SingleLinkedList.ListNode(15);
+        SingleLinkedList.ListNode third = new SingleLinkedList.ListNode(20);
+        SingleLinkedList.ListNode fourth = new SingleLinkedList.ListNode(25);
+        sll.head.next = second;
         second.next = third;
         third.next = fourth;
 
-        ListNode current = sLL.head;
+        printLinkedList(sll.head);
+        printSizeOfLinkedList(sll.head);
+    }
 
+    private static void printSizeOfLinkedList(ListNode head) {
+        int size = 0;
+        ListNode current = head;
+        while(current != null){
+            size++;
+            current = current.next;
+        }System.out.println("===========");
+        System.out.println("Size of LinkedList is "+size);
+
+    }
+
+    private static void printLinkedList(ListNode head) {
+        ListNode current = head;
         while(current!=null){
             System.out.print(current.data+"-->");
             current = current.next;
         }
         System.out.println("null");
-
     }
 }
