@@ -24,7 +24,63 @@ public class SingleLinkedList {
         third.next = fourth;
 
         printLinkedList(sll.head);
+        System.out.println("=============");
         printSizeOfLinkedList(sll.head);
+        System.out.println("=============");
+        sll.addNewNodeAtStart(5);
+        sll.addNewNodeAtStart(3);
+        printLinkedList(sll.head);
+        System.out.println("=============");
+        sll.addNewNodeAtEnd(35);
+        printLinkedList(sll.head);
+        sll.addNewNodeAtPosition(9,2);
+        printLinkedList(sll.head);
+    }
+
+    private void addNewNodeAtPosition(int data, int position) {
+        ListNode node = new ListNode(data);
+        if(position ==1){
+            node.next =head;
+            head = node;
+        }else{
+            ListNode previous = head;
+            int count =1;
+            while(count < position-1){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            node.next = current;
+            previous.next = node;
+            head = previous;
+        }
+    }
+
+    private ListNode addNewNodeAtEnd(int value) {
+        ListNode newNode = new ListNode(value);
+        if(head == null){
+            head = newNode;
+            return head;
+        }
+        ListNode current = head;
+
+        while(null != current.next){
+            current = current.next;
+        }
+        current.next = newNode;
+        //head = current;
+        return head;
+    }
+
+    private ListNode addNewNodeAtStart(int value) {
+        ListNode newNode = new ListNode(value);
+        if(head == null){
+            head = newNode;
+            return head;
+        }
+        newNode.next = head;
+        head = newNode;
+        return head;
     }
 
     private static void printSizeOfLinkedList(ListNode head) {
@@ -33,7 +89,7 @@ public class SingleLinkedList {
         while(current != null){
             size++;
             current = current.next;
-        }System.out.println("===========");
+        }
         System.out.println("Size of LinkedList is "+size);
 
     }
