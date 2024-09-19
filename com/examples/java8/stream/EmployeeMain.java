@@ -1,9 +1,6 @@
 package com.examples.java8.stream;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class EmployeeMain {
@@ -60,6 +57,30 @@ public class EmployeeMain {
         employeeList.stream().filter(i->(i.getDepartment().equals("Sales And Marketing")))
                 .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()))
                 .entrySet().stream().forEach(s->System.out.println(s.getKey()+" "+s.getValue()));
+        System.out.println("What is the average salary of male and female employees");
+        employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)))
+                .entrySet().stream().forEach(i->System.out.println(i.getKey()+" "+i.getValue()));
+        System.out.println(" List down the names of all employees in each department");
+        employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment))
+                .forEach((department, employee)-> {
+                    System.out.println(department+ " :");
+                    employee.stream().forEach(i->System.out.println(i.getName()));
+                });
+        System.out.println("What is the average salary and total salary of the whole organization");
+        double empAverageSal = employeeList.stream().collect(Collectors.averagingDouble(Employee::getSalary)).doubleValue();
+        double totalSal = employeeList.stream().collect(Collectors.summingDouble(i->i.getSalary())).doubleValue();
+        System.out.println("empAvegeSal "+empAverageSal+" totalSal "+totalSal);
+        DoubleSummaryStatistics summaraysal = employeeList.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
+        System.out.println("Average sal "+summaraysal.getAverage());
+        System.out.println("Total sal "+summaraysal.getSum());
+        System.out.println("Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years");
+        Map<Boolean, List<Employee>> separateEmp = employeeList.stream().collect(Collectors.partitioningBy(i->i.getAge()>25));
+        Set<Map.Entry<Boolean, List<Employee>>> empSet = separateEmp.entrySet();
+        empSet.stream().forEach((k->System.out.println(k.getKey()+" "+k.getValue())));
+        System.out.println(" Who is the oldest employee in the organization? What is his age and which department he belongs to");
+        Employee oldestEmp = employeeList.stream().max(Comparator.comparing(Employee::getAge)).get();
+        System.out.println(oldestEmp);
 
     }
 }
