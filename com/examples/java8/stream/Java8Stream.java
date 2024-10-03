@@ -250,7 +250,19 @@ public class Java8Stream {
      long years = ChronoUnit.YEARS.between(birthDay, LocalDate.now());
      System.out.println(years);
 
-
-
+     //Remove last repetative character
+     System.out.println("Remove last repetative character");
+     String removeLastRepeat = "Remove last repetative character";
+     Map<Character, Long> frequency = removeLastRepeat.chars().mapToObj( c -> (char)c)
+             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+     StringBuilder sb = new StringBuilder(removeLastRepeat);
+     for(int i = removeLastRepeat.length() -1; i>=0; i--){
+      char c = removeLastRepeat.charAt(i);
+      if(frequency.get(c)>1){
+       sb.deleteCharAt(i);
+       break;
+      }
+     }
+     System.out.println(removeLastRepeat+": "+sb.toString());
      }
 }
