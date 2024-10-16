@@ -81,6 +81,23 @@ public class EmployeeMain {
         System.out.println(" Who is the oldest employee in the organization? What is his age and which department he belongs to");
         Employee oldestEmp = employeeList.stream().max(Comparator.comparing(Employee::getAge)).get();
         System.out.println(oldestEmp);
+        System.out.println("Write a program using streams to sort list of names based on their second character");
+        //employeeList.stream().sorted((s1, s2)->s1.getName().charAt(1)-s2.getName().charAt(1)).map(i->i.getName()).forEach(System.out::println);
+        employeeList.stream().sorted((s1, s2)->s1.getName().charAt(1)-s2.getName().charAt(1)).forEach(System.out::println);
+        System.out.println("Java 8 stream, group employee by dept and then sort by name");
+        employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment))
+                .entrySet().stream()
+                .sorted(Comparator.comparing(e->e.getValue().get(0).getName()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1,e2)->e1,
+                        LinkedHashMap::new
+                )).forEach((k,v)->System.out.println(k+" "+v));
+        /*// Write a program to get atleast 1 phonenumber and phoneNumber starts with 9 digit
+        List<Employee> resEmp = employeeList.stream().filter(employee -> employee.getPhoneNumber()
+                .stream().anyMatch(e->e.startsWith("9")))
+                .collect(Collectors.toList());*/
 
     }
 }

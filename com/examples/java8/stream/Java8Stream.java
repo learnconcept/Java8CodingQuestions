@@ -264,5 +264,39 @@ public class Java8Stream {
       }
      }
      System.out.println(removeLastRepeat+": "+sb.toString());
-     }
+
+     //merge the below 2 hashmaps
+     Map<Integer,Integer> map1 = new HashMap<>();
+     map1.put(1, 24);
+     map1.put(2, 32);
+     map1.put(4, 54);
+
+     Map<Integer,Integer> map2 = new HashMap<>();
+     map2.put(2, 22);
+     map2.put(3, 89);
+
+   /*  output:
+     key: 1, value 24, null;
+     key: 2, value 32, 22;
+     key: 3, value null, 89;*/
+
+     Map<Object, Object> mergeMap = Stream.concat(map1.entrySet().stream(), map2.entrySet().stream())
+             .collect(Collectors.toMap(
+                     Map.Entry::getKey, // Correct key handling
+                     entry -> { // Correct value handling
+                      Integer val1 = map1.get(entry.getKey());
+                      Integer val2 = map2.get(entry.getKey());
+                      return (val1 != null ? val1 : "null") + " " + (val2 != null ? val2 : "null");
+                     },
+                     (v1, v2) -> v1 + " " + v2 // Merging values for common keys
+             ));
+
+     mergeMap.entrySet().stream().forEach((k)->System.out.println(k.getKey()+" "+k.getValue()));
+    }
+
+
+
+
+
+
 }
