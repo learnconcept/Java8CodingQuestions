@@ -1,0 +1,34 @@
+1. What is the difference between Spring and Spring Boot?
+2. What are Spring Boot starter dependencies?
+3. What is the Spring Boot Actuator?
+4. Could you please compare Scrum and Kanban?
+5. Any use cases for using Waterfall?
+6. Could you please compare Microservice and Monolith architecture?
+7. How do you trace a request in microservices?
+8. When would you use Monolith instead of Microservices?
+9. Different ways for microservices to communication with each other?
+10. What are generics in Java and what is type erasure?
+11. What problems could arise if a mutable object is used as key in a HashMap?
+12. What is the Richardson Maturity Model?
+13. Would like to be a could architect and solve the industry challenges. Could you please tell me more about that?
+14. Let's say you need to implement a new microservice from scratch. How would start setting up the security for the service?
+15. Which is your favorite and least favorite AWS service and why?
+16. How does the JVM manage available memory for you?
+17. Metaspace vs permgen?
+18. How does the GC define what's garbage?
+19. Can you as a developer run GC?
+20. Can you increase / decrease the memory available to your app?
+21. What is a class loader? How does the JVM load classes into memory?
+22. What's your experience with containerization & orchestration? Docker and its alternatives? K8s and its alternatives?
+23. What's Splunk?
+24. How does logging info move from k8s pods to Splunk?
+25. Compare and contrast bare-metal deployment vs Docker deployment vs VM deployment.
+26. What are load balancers and what are they used for?
+27. How does loadbalancer know when an instance is free or what its load is?
+28. Explain how https works. What does it bring on top of http?
+29. Who's responsible for the encryption in https?
+30. Symmetric vs asymmetric encryption - what's the difference?
+31. What's OWASP top 10?
+32. What's DDoS and how do you defend against it?
+33. What are some of the security requirements in the banking industry?
+34. What standards govern data security in the banking domain?
