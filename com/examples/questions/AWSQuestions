@@ -1,0 +1,35 @@
+1. A company is developing an image processing application. When an image is uploaded to an Amazon S3 bucket,
+a number of independent and separate services must be invoked to process the image. The services do not have to be available immediately, but they must process every image.
+
+Which application design satisfies these requirements?
+
+2. An ecommerce company deploys more than 20 services behind Amazon API Gateway.
+The interaction between services is complex. Each service can potentially call several others,
+making performance issues and errors difficult to identify. Some individual API calls have experienced slow response times.
+The development team needs to quickly identify the underlying causes of the slowdowns.
+
+   Which approach would MOST quickly identify the underlying cause of performance issues?
+
+   Response: Correct. Unlike metrics or logs, X-Ray can help users quickly identify services by their relative response times.
+   X-Ray can identify a poorly performing service from within a web of interacting services.
+   Once identified, CloudWatch provides the context, including the logs and metrics necessary to study specific issues.
+
+3. What are compute services in AWS?
+- EC2, ECS/ EKS, Lambda
+
+4. While coming to Monitorying and logging which aws services we have?
+- AWS X-Ray integration
+
+5. Handler function (Code to be run upon invocation
+- Event Object: Data sent during invocation
+- Context object: Provides information about the current runtime environment
+
+6. You need to implement an authentication mechanism that returns a JWT (JSON Web Token).
+   Which AWS service will help you with token handling and management?
+- Cognito User Pools
+
+7. What do mean by monitoring and Observability
+- Monitoring can help you discover that there is an issue.
+- Observability can help you discover why.
+
+
