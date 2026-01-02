@@ -1,0 +1,13 @@
+# Compiled Java files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Compiler output
+out/
+target/
+
+# OS files
+.DS_Store
