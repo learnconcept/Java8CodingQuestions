@@ -1,7 +1,6 @@
 package com.examples.coding;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class EmployeeFilter {
