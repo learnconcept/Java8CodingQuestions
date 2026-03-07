@@ -13,12 +13,39 @@ public class FindHCF {
         }
         return 1;
     }
+
+    private static int findEfficientHcfLucid(int a, int b) {
+        while(a != b){
+            if(a>b){
+                a = a-b;
+            }else{
+                b = b-a;
+            }
+        }
+        return a;
+    }
+    private static int findHCFGaberialLame(int a, int b) {
+        while ( a >0 && b >0) {
+            if (a > b) {
+                a = a % b;
+            } else {
+                b = b % a;
+            }
+        }
+        return Math.max(a, b);
+    }
      static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a first number : ");
         int a = sc.nextInt();
         System.out.println("Enter a second number : ");
         int b = sc.nextInt();
-        System.out.println(findHCF(a, b));
+        //System.out.println(findHCF(a, b));
+        // System.out.println(findEfficientHcfLucid(a,b));
+         System.out.println(findHCFGaberialLame(a,b));
     }
+
+
+
+
 }
