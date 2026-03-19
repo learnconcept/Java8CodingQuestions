@@ -1,4 +1,4 @@
-package com.examples.dsa.tap;
+package com.examples.dsa.concept;
 
 public class CountNumber {
     static void main() {
