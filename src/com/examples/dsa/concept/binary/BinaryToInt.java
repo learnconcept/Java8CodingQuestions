@@ -1,4 +1,4 @@
-package com.examples.dsa.concept;
+package com.examples.dsa.concept.binary;
 
 import java.util.Scanner;
 

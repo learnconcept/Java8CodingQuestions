@@ -1,7 +1,6 @@
-package com.examples.dsa.concept;
+package com.examples.dsa.concept.binary;
 
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class IntToBinary {
     static void main() {
