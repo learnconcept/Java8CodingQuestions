@@ -15,8 +15,8 @@ public class RecursionPrintNumber {
     private static void moreEffectiveWay(int num) {
         if(num < 1)
             return;
-        System.out.print(num + " ");
         moreEffectiveWay(num-1);
+        System.out.print(num + " ");
     }
 
     private static void printNum(int num) {
